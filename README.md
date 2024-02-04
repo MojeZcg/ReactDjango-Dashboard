@@ -14,7 +14,6 @@
 ## Technologies Used:
 
 - Frontend: React.js
-- Backend: Django
 - Styling: Tailwind CSS
 - Internationalization: i18next for language translation
 
@@ -23,7 +22,6 @@
 >
 >Make sure you have the following tools installed before running the project:
 >
->- Python 3.x
 >- Node.js
 >- npm (installed automatically with Node.js)
 
