@@ -1,8 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-import Dashboard from "containers/pages/Dashboard";
+import Dashboard from "containers/pages/dashboard/Dashboard";
 import Error404 from "containers/errors/Error404";
+import Blog from "containers/pages/blog/Blog";
+import Login from "containers/auth/Login";
+import Register from "containers/auth/Register";
+import ResetPassword from "containers/auth/ResetPassword";
+import ResetPasswordConfirm from "containers/auth/ResetPasswordConfirm";
+import EditPost from "containers/pages/blog/EditPost";
 
 function App() {
   return (
@@ -50,7 +56,17 @@ function App() {
           <Route path="*" element={<Error404 />} />
 
           {/* Page Displays */}
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/reset" element={<ResetPassword />} />
+          <Route
+            path="/password/reset/confirm/:uid/:token"
+            element={<ResetPasswordConfirm />}
+          />
+
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/edit/:slug" element={<EditPost />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </HelmetProvider>

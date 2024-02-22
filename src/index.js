@@ -10,6 +10,10 @@ import i18 from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpApi from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { DashboardEN } from "lang/en/Dashboard";
+import { DashboardES } from "lang/es/Dashboard";
+import { BlogEN } from "lang/en/Blog";
+import { BlogES } from "lang/es/Blog";
 
 i18
   .use(initReactI18next)
@@ -17,8 +21,14 @@ i18
   .use(HttpApi)
   .init({
     resources: {
-      en: {},
-      es: {},
+      en: {
+        Dashboard: DashboardEN,
+        blog: BlogEN,
+      },
+      es: {
+        Dashboard: DashboardES,
+        blog: BlogES,
+      },
     },
     detection: {
       order: [

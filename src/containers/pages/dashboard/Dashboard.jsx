@@ -1,4 +1,4 @@
-import Sidebar from "components/navigation/Sidebar";
+import DashboardContent from "components/Dashboard/DashboardContent";
 import Layout from "hocs/Layout/Layout";
 
 import { connect } from "react-redux";
@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <Layout>
       <div className="w-full h-64">
-        <Sidebar />
+        <DashboardContent />
       </div>
     </Layout>
   );

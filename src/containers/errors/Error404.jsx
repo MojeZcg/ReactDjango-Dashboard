@@ -1,11 +1,5 @@
-import Layout from "hocs/Layout/Layout";
-
 function Error404() {
-  return (
-    <Layout>
-      <div>Error</div>
-    </Layout>
-  );
+  return <div>Error 404</div>;
 }
 
 export default Error404;
