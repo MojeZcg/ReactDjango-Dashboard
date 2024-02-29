@@ -12,30 +12,6 @@ import {
   GET_AUTHOR_BLOG_LIST_FAIL,
 } from "./types";
 
-export const put_blog = (formData) => async (dispatch) => {
-  const config = {
-    headers: {
-      Authorization: `JWT ${localStorage.getItem("access")}`,
-      Accept: "application/json",
-    },
-  };
-
-  try {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/blog/edit`,
-      formData,
-      config
-    );
-    if (res.status === 200) {
-      return true;
-    } else {
-      return false;
-    }
-  } catch (error) {
-    return false;
-  }
-};
-
 export const get_author_blog_list = () => async (dispatch) => {
   const config = {
     headers: {
@@ -107,7 +83,7 @@ export const get_blog = (slug) => async (dispatch) => {
 
   try {
     const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/blog/detail/${slug}`,
+      `${process.env.REACT_APP_API_URL}/api/blog/author_detail/${slug}`,
       config
     );
 

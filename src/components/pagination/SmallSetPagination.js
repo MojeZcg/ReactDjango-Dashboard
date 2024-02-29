@@ -43,7 +43,7 @@ export default function SmallSetPagination({ list_page, list, count }) {
 
       if (active === page) {
         content = (
-          <li>
+          <li key={count + i}>
             <div
               className={`hidden md:flex items-center justify-center h-auto w-8`}
             >
@@ -55,7 +55,7 @@ export default function SmallSetPagination({ list_page, list, count }) {
         );
       } else {
         content = (
-          <li>
+          <li key={count + i}>
             <button
               onClick={() => visitPage(page)}
               className={`hidden  md:flex items-center justify-center `}
@@ -74,34 +74,29 @@ export default function SmallSetPagination({ list_page, list, count }) {
     return numbers;
   };
   return (
-    <nav className="pr-1">
-      <ul
-        className="list-style-none flex items-center justify-end gap-2 mr-6"
-        key={count}
-      >
-        <li>
+    <nav className="flex  justify-end pr-6 pb-5">
+      <ul className=" flex items-center ">
+        <li key={count}>
           {currentPage !== 1 ? (
-            <div className="flex items-center justify-center pr-3 h-8 w-26">
-              <button
-                onClick={() => previous_number()}
-                className="relative block rounded bg-transparent px-3 py-2 border border-gray-700 hover:border-black  hover:text-black text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:text-white"
-              >
-                <div className="flex items-center justify-center gap-2">
-                  <FaArrowLeft className="" />
-                  {t("previous")}
-                </div>
-              </button>
-            </div>
+            <button
+              onClick={() => previous_number()}
+              className="relative block rounded bg-transparent px-3 py-2 border border-gray-700 hover:border-black  hover:text-black text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:text-white"
+            >
+              <div className="flex items-center justify-center gap-2">
+                <FaArrowLeft className="" />
+                {t("previous")}
+              </div>
+            </button>
           ) : (
             <div className=" flex-1 pr-3 h-8 w-26 aspect-w-1 aspect-h-1"></div>
           )}
         </li>
         {get_numbers()}
-        <li>
+        <li key={count - 2}>
           {numbers.length === 0 || currentPage === numbers.length ? (
             <div className="flex-1 pl-3 h-8 w-26 aspect-w-1 aspect-h-1"></div>
           ) : (
-            <div className=" items-center justify-center pl-3 h-8 w-26">
+            <div className=" items-center justify-center pl-3 ">
               <button
                 onClick={() => next_number()}
                 className="relative block rounded bg-transparent px-3 py-2 border border-gray-700 hover:border-black  hover:text-black text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:border-neutral-200 dark:hover:bg-neutral-950 dark:hover:text-white"

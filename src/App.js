@@ -9,6 +9,7 @@ import Register from "containers/auth/Register";
 import ResetPassword from "containers/auth/ResetPassword";
 import ResetPasswordConfirm from "containers/auth/ResetPasswordConfirm";
 import EditPost from "containers/pages/blog/EditPost";
+import Preview from "containers/pages/blog/Preview";
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/edit/:slug" element={<EditPost />} />
+          <Route path="/preview/:slug" element={<Preview />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
