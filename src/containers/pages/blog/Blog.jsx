@@ -89,8 +89,9 @@ function Blog({
               name="search"
               value={term}
               onChange={(e) => handleChange(e)}
+              placeholder="Search..."
               type="search"
-              className="focus:pl-3 pl-8 bg-gray-50 dark:bg-slate-900 focus:dark:bg-slate-800 focus:w-52 w-44 h-8 text-base rounded-lg ring-transparent focus:ring-transparent focus:border-slate-900 focus:dark:border-white dark:text-white text-dark transition-all duration-500 ease-in-out"
+              className="py-2 pl-10 pr-4 focus:pl-70 border-transparent placeholder-gray-400 focus:bg-gray-50 rounded-lg"
             />
             <button
               className={`${

@@ -40,7 +40,7 @@ function Layout({
     is_authenticated();
     refresh();
     load_user();
-  }, [is_authenticated, refresh, load_user]);
+  }, [isAuthenticated, is_authenticated, load_user, refresh]);
 
   const navigation = [
     {
@@ -48,7 +48,7 @@ function Layout({
       href: "/dashboard",
       icon: MdDashboard,
       current: location.pathname === "/dashboard" ? true : false,
-      styles: " text-black  w-3/12 h-5 mr-2 items-center justify-center",
+      styles: "  w-3/12 h-5 mr-2 items-center justify-center",
     },
     {
       name: "Blog",
@@ -59,7 +59,7 @@ function Layout({
         location.pathname === "/blog" || /^\/edit\//.test(location.pathname)
           ? true
           : false,
-      styles: " text-black w-3/12 h-5 mr-2 items-center justify-center",
+      styles: "  w-3/12 h-5 mr-2 items-center justify-center",
     },
   ];
 
@@ -85,6 +85,10 @@ function Layout({
     logout();
     navigate("/");
   };
+
+  if (user_loading || !user) return <div>Loading...</div>;
+
+  if (!isAuthenticated) return navigate("/");
 
   return (
     <div className="flex justify-between font-Main">
@@ -117,8 +121,8 @@ function Layout({
                   key={item.name}
                   className={`flex items-center px-3 py-2  border border-neutral-800  transition-all duration-300 transform rounded-lg  dark:text-gray-300 dark:hover:text-gray-200  ${
                     item.current
-                      ? "bg-oro/10 dark:bg-gray-700 text-black"
-                      : "bg-gray-100 text-gray-900 dark:hover:bg-gray-800 hover:text-oro"
+                      ? "bg-main-900/90 dark:bg-gray-700 text-white"
+                      : "bg-gray-100 text-gray-900 dark:hover:bg-gray-800 hover:text-main"
                   } `}
                   href={item.href}
                 >
@@ -130,7 +134,7 @@ function Layout({
                     <span
                       className={`${
                         item.name !== "Blog" ? "hidden" : ""
-                      } font-semibold mr-1 text-black `}
+                      } font-semibold mr-1 `}
                     >
                       {count}
                     </span>
@@ -143,12 +147,12 @@ function Layout({
               <div className="flex items-center justify-between ">
                 <a href="/" className="flex items-center gap-x-2">
                   <img
-                    className="object-cover rounded-full h-7 w-7"
+                    className="object-cover rounded-full h-10 w-10"
                     src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&h=634&q=80"
                     alt="avatar"
                   />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                    John Doe
+                  <span className="text-base ml-1 font-medium text-gray-700 dark:text-gray-200">
+                    {user && user.first_name + " " + user.last_name}
                   </span>
                 </a>
 
@@ -162,7 +166,7 @@ function Layout({
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-5 h-5"
+                    className="w-6 h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -236,7 +240,7 @@ function Layout({
                       alt="avatar"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                      John Doe
+                      {user && user.first_name + " " + user.last_name}
                     </span>
                   </a>
 

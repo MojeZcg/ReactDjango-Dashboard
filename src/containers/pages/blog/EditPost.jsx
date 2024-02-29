@@ -348,7 +348,7 @@ function EditPost({
                     {post.status === "draft" ? (
                       <button
                         type="button"
-                        className=" transition-all duration-300 ease-in-out border border-black focus:outline-none text-white my-3 px-6 py-2 bg-emerald-600 hover:bg-emerald-600 focus:ring-4 focus:ring-green-300  rounded-lg dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900"
+                        className=" transition-all duration-300 ease-in-out border border-black focus:outline-none text-white my-3 px-6 py-2 bg-main-darkest-50 hover:bg-main-darkest-100 focus:ring-4 focus:ring-main-darkest-50  rounded-lg dark:bg-main-3000 dark:hover:main-500 dark:focus:ring-main-950"
                         onClick={toggleModal}
                       >
                         Publish
@@ -462,7 +462,7 @@ function EditPost({
                           </button>
                           <button
                             onClick={(e) => publish(e)}
-                            className="px-4 py-2 transition-all duration-300 ease-in-out border border-black focus:outline-none text-gray-200 hover:text-white bg-green-600  hover:bg-green-800 focus:ring-2 focus:ring-green-300  rounded-lg dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900"
+                            className="px-4 py-2 transition-all duration-300 ease-in-out border border-black focus:outline-none text-gray-200 hover:text-white bg-main-darkest-50  hover:bg-main-darkest-100 focus:ring-2 focus:ring-main-300  rounded-lg dark:bg-main-600 dark:hover:bg-main-900 dark:focus:ring-main-darkest-300"
                           >
                             Publish
                           </button>
@@ -515,19 +515,21 @@ function EditPost({
                             {post.status === "draft" ? (
                               <span className=" text-red-600">Draft</span>
                             ) : (
-                              <span className="text-green-600">Published</span>
+                              <span className="text-main-darkest-200 drop-shadow-lg">
+                                Published
+                              </span>
                             )}
                           </h4>
                         </div>
                         <div className="flex gap-5 text-lg ">
                           <button
                             type="submit"
-                            className=" bg-emerald-600 text-white border text-sm border-neutral-950 py-1 px-4 rounded-lg"
+                            className=" transition-colors duration-200 ease-in-out bg-main-darkest-50 hover:bg-main-darkest-300 text-white border text-sm border-neutral-950 py-1 px-4 rounded-lg"
                           >
                             Save
                           </button>
                           <button
-                            className="bg-gray-700 text-white border text-sm border-neutral-950 py-2 px-5 rounded-lg"
+                            className=" transition-colors duration-200 ease-in-out  bg-gray-700 hover:bg-main-darkest-950 text-white border text-sm border-neutral-950 py-2 px-5 rounded-lg"
                             onClick={() => changeUpdate(false)}
                           >
                             Cancel
@@ -566,7 +568,7 @@ function EditPost({
                               Category:
                             </dt>
                             <select
-                              className="block w-auto h-8 py-1 rounded-md checked:text-oro text-center max-w-sm "
+                              className="block w-auto h-8 py-1 rounded-md checked:text-main text-center max-w-sm "
                               size="1"
                               value={categoryid === null ? "0" : categoryid}
                               onChange={(e) => onChange(e)}
@@ -736,7 +738,7 @@ function EditPost({
                             {post.status === "draft" ? (
                               <span className=" text-red-600">Drafted</span>
                             ) : (
-                              <span className="text-green-600">Published</span>
+                              <span className="text-main-600">Published</span>
                             )}
                           </h4>
                         </div>
