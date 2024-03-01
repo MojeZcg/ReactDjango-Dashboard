@@ -10,6 +10,7 @@ import ResetPassword from "containers/auth/ResetPassword";
 import ResetPasswordConfirm from "containers/auth/ResetPasswordConfirm";
 import EditPost from "containers/pages/blog/EditPost";
 import Preview from "containers/pages/blog/Preview";
+import Settings from "containers/pages/user/Settings";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
           <Route path="/edit/:slug" element={<EditPost />} />
           <Route path="/preview/:slug" element={<Preview />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
     </HelmetProvider>

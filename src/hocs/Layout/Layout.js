@@ -22,6 +22,8 @@ import {
   refresh,
 } from "redux/actions/auth/auth";
 
+import NoProfile from "assets/img/no-profile.jpg";
+
 function Layout({
   children,
   refresh,
@@ -47,7 +49,7 @@ function Layout({
       name: t("dashboard"),
       href: "/dashboard",
       icon: MdDashboard,
-      current: location.pathname === "/dashboard" ? true : false,
+      current: location.pathname === "/dashboard",
       styles: "  w-3/12 h-5 mr-2 items-center justify-center",
     },
     {
@@ -56,30 +58,26 @@ function Layout({
       counter: count,
       icon: FaBloggerB,
       current:
-        location.pathname === "/blog" || /^\/edit\//.test(location.pathname)
-          ? true
-          : false,
+        location.pathname === "/blog" || location.pathname.startsWith("/edit/"),
       styles: "  w-3/12 h-5 mr-2 items-center justify-center",
     },
   ];
 
-  const [SidebarOpen, setSidebarOpen] = useState(false);
+  const [sideBarOpen, setsideBarOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
-    setSidebarOpen(!SidebarOpen);
+    setsideBarOpen(!sideBarOpen);
   };
 
   const closeSidebar = () => {
-    setSidebarOpen(false);
+    setsideBarOpen(false);
   };
-
-  const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
@@ -145,16 +143,16 @@ function Layout({
 
             <div className="mt-12">
               <div className="flex items-center justify-between ">
-                <a href="/" className="flex items-center gap-x-2">
+                <Link to="/settings" className="flex items-center gap-x-2">
                   <img
                     className="object-cover rounded-full h-10 w-10"
-                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&h=634&q=80"
+                    src={user.pictureprofile ? user.pictureprofile : NoProfile}
                     alt="avatar"
                   />
                   <span className="text-base ml-1 font-medium text-gray-700 dark:text-gray-200">
                     {user && user.first_name + " " + user.last_name}
                   </span>
-                </a>
+                </Link>
 
                 <button
                   onClick={() => toggleModal()}
@@ -183,7 +181,7 @@ function Layout({
         {/** Mobil Aside */}
         <aside
           className={`fixed inset-0 z-50 bg-white dark:bg-gray-900 transition-transform duration-300 transform ${
-            SidebarOpen ? "translate-x-0" : "-translate-x-full"
+            sideBarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           <div className="flex flex-col w-64 h-screen px-6 pt-4 pb-7 overflow-y-auto bg-white border-r rtl:border-r-0 border-neutral-300 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
@@ -233,16 +231,18 @@ function Layout({
 
               <div className="mt-12">
                 <div className="flex items-center justify-between ">
-                  <a href="/" className="flex items-center gap-x-2">
+                  <Link to="/settings" className="flex items-center gap-x-2">
                     <img
                       className="object-cover rounded-full h-7 w-7"
-                      src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&h=634&q=80"
+                      src={
+                        user.pictureprofile ? user.pictureprofile : NoProfile
+                      }
                       alt="avatar"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
                       {user && user.first_name + " " + user.last_name}
                     </span>
-                  </a>
+                  </Link>
 
                   <button
                     onClick={() => toggleModal()}

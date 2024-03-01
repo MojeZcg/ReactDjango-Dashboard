@@ -158,7 +158,7 @@ function Navbar({ dispatch }) {
               <div className="hidden lg:flex">
                 {links.map((link) => (
                   <NavLink
-                    key={link.link}
+                    key={link.link + " " + link.name}
                     to={link.link}
                     className="  cursor-pointer select-none text-lg inline-flex font-medium border-b-2 border-transparent leading-6 text-gray-900 dark:text-white  hover: border-oro mx-1 lg:mx-7 md:mx-0 md:ml-8 md:my-0 lg:text-base xl:ml-5 xl:text-base 2xl:text-xl"
                   >
@@ -180,7 +180,7 @@ function Navbar({ dispatch }) {
                 </span>
               </div>
               <Link
-                to="http://192.168.1.105:3001/"
+                to="/"
                 className="flex items-center justify-center text-base ml-0 lg:ml-4 my-0 rounded-md text-center border-transparent bg-oro 
                 lg:text-lg
                 px-3 py-3 
@@ -226,7 +226,7 @@ function Navbar({ dispatch }) {
             <div className="w-full text-3xl  ">
               <ul className="last:border-b-2 border-oro">
                 {links.map((link) => (
-                  <li key={link.link}>
+                  <li key={link.link + " " + link.name}>
                     <NavLink
                       to={link.link}
                       className="py-5 px-4 m-0 w-full cursor-pointer items-center select-none  inline-flex font-medium border-l-2 border-oro leading-8 text-2xl text-black dark:text-white "

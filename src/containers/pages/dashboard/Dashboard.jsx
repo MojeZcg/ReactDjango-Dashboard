@@ -7,6 +7,7 @@ import {
 } from "redux/actions/auth/auth";
 import { connect } from "react-redux";
 import { useEffect } from "react";
+import NoProfile from "assets/img/no-profile.jpg";
 
 function Dashboard({
   user,
@@ -79,7 +80,7 @@ function Dashboard({
                 </div>
                 <span className="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
                   <img
-                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    src={user.profilepicture ? user.profilepicture : NoProfile}
                     alt="user profile"
                     className="h-full w-full object-cover"
                   />
@@ -137,7 +138,7 @@ function Dashboard({
               </div>
             </div>
           </header>
-          <main className="p-6 sm:p-10 space-y-6">
+          <main className="px-6 py-3 space-y-6">
             <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
               <div className="mr-6">
                 <h1 className="text-4xl font-semibold mb-2">Dashboard</h1>
@@ -426,26 +427,6 @@ function Dashboard({
                   </ul>
                 </div>
               </div>
-            </section>
-            <section className="text-right font-semibold text-gray-500">
-              <a href="/" className="text-purple-600 hover:underline">
-                Recreated on Codepen
-              </a>{" "}
-              with{" "}
-              <a
-                href="https://tailwindcss.com/"
-                className="text-teal-400 hover:underline"
-              >
-                Tailwind CSS
-              </a>{" "}
-              by Azri Kahar,{" "}
-              <a
-                href="https://dribbble.com/shots/10711741-Free-UI-Kit-for-Figma-Online-Courses-Dashboard"
-                className="text-purple-600 hover:underline"
-              >
-                original design
-              </a>{" "}
-              made by Chili Labs
             </section>
           </main>
         </div>

@@ -328,7 +328,7 @@ function EditPost({
                       </Link>
                     ) : (
                       <Link
-                        to={`${process.env.REACT_APP_URL}/blog/${post.slug}`}
+                        to={`${process.env.REACT_APP_URL}/post/${post.slug}`}
                         className=" transition-all duration-300 ease-in-out focus:outline-none border border-black  my-3 px-5 py-2 bg-white hover:text-white hover:bg-neutral-600 focus:ring-4 focus:ring-neutral-300 rounded-lg dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-900"
                       >
                         View Post
