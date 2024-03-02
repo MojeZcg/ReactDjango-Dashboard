@@ -20,8 +20,8 @@ export default function PostCard({ data }) {
         <div className="flex items-center justify-center dark:bg-neutral-950 rounded-l-xl overflow-hidden h-full dark:-z-0 -z-10  w-2/6 ">
           <img
             src={`${process.env.REACT_APP_API_URL}${data.thumbnail}`}
-            className=" p-0 object-cover  w-full aspect-[16/9] "
-            alt="Post"
+            className=" p-0 object-cover w-full aspect-[16/9] "
+            alt={data.description}
           />
         </div>
         <div className="flex flex-col justify-between px-8 w-4/6">

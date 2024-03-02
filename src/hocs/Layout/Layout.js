@@ -5,12 +5,9 @@ import DarkLogo from "assets/svg/darkLogo.svg";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import { MdDashboard } from "react-icons/md";
-
-import { IoClose } from "react-icons/io5";
-
-import { FaBloggerB } from "react-icons/fa";
-
+import { MdOutlineDashboard } from "react-icons/md";
+import { IoClose, IoSettingsOutline } from "react-icons/io5";
+import { TbBrandBlogger } from "react-icons/tb";
 import { PiListFill } from "react-icons/pi";
 
 import { useTranslation } from "react-i18next";
@@ -48,7 +45,7 @@ function Layout({
     {
       name: t("dashboard"),
       href: "/dashboard",
-      icon: MdDashboard,
+      icon: MdOutlineDashboard,
       current: location.pathname === "/dashboard",
       styles: "  w-3/12 h-5 mr-2 items-center justify-center",
     },
@@ -56,9 +53,16 @@ function Layout({
       name: "Blog",
       href: "/blog",
       counter: count,
-      icon: FaBloggerB,
+      icon: TbBrandBlogger,
       current:
         location.pathname === "/blog" || location.pathname.startsWith("/edit/"),
+      styles: "  w-3/12 h-5 mr-2 items-center justify-center",
+    },
+    {
+      name: "Settings",
+      href: "/settings",
+      icon: IoSettingsOutline,
+      current: location.pathname === "/settings",
       styles: "  w-3/12 h-5 mr-2 items-center justify-center",
     },
   ];
@@ -84,10 +88,11 @@ function Layout({
     navigate("/");
   };
 
-  if (user_loading || !user) return <div>Loading...</div>;
+  if (!user) return <div>Loading...</div>;
 
   if (!isAuthenticated) return navigate("/");
 
+  console.log(user.profilepicture);
   return (
     <div className="flex justify-between font-Main">
       <div className="fixed ">
@@ -146,7 +151,7 @@ function Layout({
                 <Link to="/settings" className="flex items-center gap-x-2">
                   <img
                     className="object-cover rounded-full h-10 w-10"
-                    src={user.pictureprofile ? user.pictureprofile : NoProfile}
+                    src={user.profilepicture ? user.profilepicture : NoProfile}
                     alt="avatar"
                   />
                   <span className="text-base ml-1 font-medium text-gray-700 dark:text-gray-200">
@@ -235,7 +240,7 @@ function Layout({
                     <img
                       className="object-cover rounded-full h-7 w-7"
                       src={
-                        user.pictureprofile ? user.pictureprofile : NoProfile
+                        user.profilepicture ? user.profilepicture : NoProfile
                       }
                       alt="avatar"
                     />

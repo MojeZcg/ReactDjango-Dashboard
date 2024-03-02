@@ -478,6 +478,7 @@ function EditPost({
                         <p className="text-gray-700  font-medium text-sm pt-2">
                           No se puede publicar un post sin título, descripción,
                           imagen, contenido, tiempo de lectura o categoría.
+                          Guardalo como borrador y completa la información.
                         </p>
                       </div>
                       <div className="flex justify-end px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-b-lg">
@@ -515,7 +516,7 @@ function EditPost({
                             {post.status === "draft" ? (
                               <span className=" text-red-600">Draft</span>
                             ) : (
-                              <span className="text-main-darkest-200 drop-shadow-lg">
+                              <span className="text-main-darkest-300 drop-shadow-lg">
                                 Published
                               </span>
                             )}
@@ -738,7 +739,9 @@ function EditPost({
                             {post.status === "draft" ? (
                               <span className=" text-red-600">Drafted</span>
                             ) : (
-                              <span className="text-main-600">Published</span>
+                              <span className="text-main-darkest-300 drop-shadow-lg">
+                                Published
+                              </span>
                             )}
                           </h4>
                         </div>
