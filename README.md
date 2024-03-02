@@ -7,7 +7,6 @@
 >
 ## Features:
 
-- Dark Mode: Enjoy a visually comfortable reading experience in low-light environments with the Dark Mode feature.
 - Responsive Design: The blog is designed to adapt seamlessly to various screen sizes, providing an optimal viewing experience on desktops, tablets, and mobile devices.
 - Multilingual Support: The blog is available in both English and Spanish, offering a user-friendly interface for a diverse audience. Users can effortlessly switch between languages to access content in their preferred language.
 
@@ -16,6 +15,18 @@
 - Frontend: React.js
 - Styling: Tailwind CSS
 - Internationalization: i18next for language translation
+
+  ## Images
+<p >
+  <img src="images/Dashboard.png" alt="Dasboard" width="400" >
+  <img src="images/BlogEditor.png" alt="Blog Editor" width="400" >
+  <img src="images/UpdatePost.png" alt="Update Post" width="400" >
+  <img src="images/PreviewImage.png" alt="Preview Image" width="400" >
+  <img src="images/ContentImage.png" alt="Content Image" width="400" >
+  <img src="images/SettingsPage.png" alt="Settings Page" width="400" >
+</p>
+
+---
 
 > [!WARNING]
 >## Prerequisites
